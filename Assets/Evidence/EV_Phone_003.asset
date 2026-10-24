@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2877b58819da49c98cfe257b387a1270, type: 3}
+  m_Name: EV_Phone_003
+  m_EditorClassIdentifier: MurderMystery::EvidenceItem
+  evidenceId: EV-PHONE-003
+  displayName: Damaged Smartphone
+  category: 1
+  description: "The glass screen is cracked. An unsent draft in the messaging app reads: 'They know what happened. Don't speak to security until we talk.'"
+  icon: {fileID: 0}
