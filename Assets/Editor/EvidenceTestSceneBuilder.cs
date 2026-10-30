@@ -8,6 +8,12 @@ namespace MurderMystery.Editor
 {
     public static class EvidenceTestSceneBuilder
     {
+        [MenuItem("Murder Mystery/Open Evidence Test Scene")]
+        public static void OpenTestScene()
+        {
+            EditorSceneManager.OpenScene("Assets/Scenes/EvidenceSystem_TestScene.unity");
+        }
+
         [MenuItem("Murder Mystery/Build Evidence Test Scene")]
         public static void BuildScene()
         {
