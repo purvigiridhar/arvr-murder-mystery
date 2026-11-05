@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2877b58819da49c98cfe257b387a1270, type: 3}
+  m_Name: EV_Grant_005
+  m_EditorClassIdentifier: MurderMystery::EvidenceItem
+  evidenceId: EV-GRANT-005
+  displayName: Project Lighthouse Financial Summary
+  category: 3
+  description: "An audited expenditure sheet for Project Lighthouse recovered from Dr. Mitra's confidential research binder. Red annotations in Ananya's handwriting highlight three unapproved wire transfers totaling ₹4,80,000 to 'V.D. Advisory Services.' Stapled to the summary is a corporate registration printout obtained by Dr. Mitra from the Ministry of Corporate Affairs database: it explicitly lists the sole registered proprietor and bank signatory of 'V.D. Advisory Services' as Prof. Vikram Desai, citing his university faculty ID (#FAC-1082) and official residential address. A handwritten note reads: 'Embezzlement verified with banking ombudsman. Direct conflict of interest. Delivering formal dossier to University Syndicate on Monday.'"
+  icon: {fileID: 0}
