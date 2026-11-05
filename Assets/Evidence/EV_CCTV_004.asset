@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2877b58819da49c98cfe257b387a1270, type: 3}
+  m_Name: EV_CCTV_004
+  m_EditorClassIdentifier: MurderMystery::EvidenceItem
+  evidenceId: EV-CCTV-004
+  displayName: Security Access & Corridor CCTV Log
+  category: 1
+  description: "A synchronized incident printout from the ISFCR monitoring console. It pairs automated card-reader events with corridor camera frames:\n• 23:30 — Badge #R-04 (R. Kapoor) accessed IoT Centre 1108 (no subsequent exit or 1112 scans).\n• 23:35–23:50 — Console status: 'Operator Inactive — Terminal Screen-Lock Engaged.'\n• 23:43 — West Corridor Camera: Supporting footage shows a tall figure in a dark, tailored formal blazer walking toward Lab 1112.\n• 23:45 — Lab 1112 Door Reader: Badge #SR-01 (Prof. V. Desai, Master Credential) granted entry.\n• 23:51 — West Corridor Camera: Supporting footage shows the same tailored-blazer figure retreating east toward the Meeting Room.\n[Registry Appendix: Active Floor 11 Senior Researcher credentials: #SR-01 (Prof. V. Desai), #SR-02 (Dr. A. Mitra)]."
+  icon: {fileID: 0}
