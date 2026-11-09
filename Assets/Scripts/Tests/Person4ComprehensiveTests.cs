@@ -41,6 +41,7 @@ namespace MurderMystery.Tests
             Test_GuideNpc_InteractionAndDialogue();
             Test_PlayerFootsteps_LocomotionLogic();
             Test_ClueVisualCue_LightAttachment();
+            Test_FloorMapUI_NavigationAndToggle();
 
             int passed = 0;
             int failed = 0;
@@ -207,6 +208,21 @@ namespace MurderMystery.Tests
             DestroyImmediate(clueObj);
 
             Assert(valid, "Test_ClueVisualCue_LightAttachment", "ClueVisualCue failed attachment.");
+        }
+
+        private void Test_FloorMapUI_NavigationAndToggle()
+        {
+            GameObject mapObj = new GameObject("Test_FloorMapHarness");
+            var map = mapObj.AddComponent<FloorMapUI>();
+
+            bool initiallyClosed = !map.IsFullscreenMapOpen;
+            map.ToggleFullscreenMap();
+            bool opened = map.IsFullscreenMapOpen;
+            map.CloseFullscreenMap();
+            bool closed = !map.IsFullscreenMapOpen;
+
+            DestroyImmediate(mapObj);
+            Assert(initiallyClosed && opened && closed, "Test_FloorMapUI_NavigationAndToggle", "FloorMapUI failed map toggle cycle.");
         }
     }
 }

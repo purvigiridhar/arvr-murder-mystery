@@ -91,6 +91,11 @@ namespace MurderMystery
                 systemObject.AddComponent<MurderMystery.UI.GameMenuUI>();
             }
 
+            if (FindComponent<MurderMystery.UI.FloorMapUI>(scene) == null)
+            {
+                systemObject.AddComponent<MurderMystery.UI.FloorMapUI>();
+            }
+
             if (playerController != null && playerController.GetComponent<PlayerFootsteps>() == null)
             {
                 playerController.gameObject.AddComponent<PlayerFootsteps>();

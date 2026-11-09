@@ -21,11 +21,11 @@ namespace MurderMystery.Editor
         {
             try
             {
-                Floor11VisualUpgrade.UpgradeScene();
+                Floor11CompleteOverhaul.ExecuteOverhaul();
             }
             catch (Exception ex)
             {
-                Debug.LogError($"[CompleteGameTestRunner] Failed to run visual upgrade: {ex}");
+                Debug.LogError($"[CompleteGameTestRunner] Failed to run complete environment overhaul: {ex}");
             }
 
             EvidenceManager existingManager = EvidenceManager.Instance;
