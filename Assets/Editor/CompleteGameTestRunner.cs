@@ -19,6 +19,15 @@ namespace MurderMystery.Editor
         [MenuItem("Murder Mystery/Run All Game Tests (Full Suite)")]
         public static void RunAllTests()
         {
+            try
+            {
+                Floor11VisualUpgrade.UpgradeScene();
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"[CompleteGameTestRunner] Failed to run visual upgrade: {ex}");
+            }
+
             EvidenceManager existingManager = EvidenceManager.Instance;
             List<EvidenceItem> originalEvidence = existingManager == null
                 ? null
@@ -125,3 +134,4 @@ namespace MurderMystery.Editor
         }
     }
 }
+

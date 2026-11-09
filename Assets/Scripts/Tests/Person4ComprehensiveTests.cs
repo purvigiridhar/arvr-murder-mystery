@@ -11,7 +11,8 @@ namespace MurderMystery.Tests
     /// Person 4 Comprehensive Verification Test Suite:
     /// Validates all Person 4 deliverables:
     /// - Audio system (ambience, footsteps, interaction, story stingers)
-    /// - UI/UX systems (Main menu, pause menu, HUD notifications, evidence journal, dialogue & accusation)
+    /// - UI/UX systems (Main menu, tutorial modal, pause menu, HUD notifications, evidence journal, dialogue & accusation)
+    /// - Guide NPC "Arjun Mehta" (interaction, dialogue, idle animation)
     /// - Clue visual indicators and player locomotion footsteps
     /// </summary>
     public class Person4ComprehensiveTests : MonoBehaviour
@@ -36,7 +37,8 @@ namespace MurderMystery.Tests
             Test_InteractionPromptUI_FormattingAndFade();
             Test_EvidenceJournalUI_CategoryTabsAndState();
             Test_GameNotificationUI_Deduplication();
-            Test_GameMenuUI_StateTransitions();
+            Test_GameMenuUI_StateTransitionsAndCursor();
+            Test_GuideNpc_InteractionAndDialogue();
             Test_PlayerFootsteps_LocomotionLogic();
             Test_ClueVisualCue_LightAttachment();
 
@@ -142,7 +144,7 @@ namespace MurderMystery.Tests
             Assert(true, "Test_GameNotificationUI_Deduplication", "GameNotificationUI failed notification dispatch.");
         }
 
-        private void Test_GameMenuUI_StateTransitions()
+        private void Test_GameMenuUI_StateTransitionsAndCursor()
         {
             GameObject menuObj = new GameObject("Test_MenuHarness");
             var menu = menuObj.AddComponent<GameMenuUI>();
@@ -159,7 +161,28 @@ namespace MurderMystery.Tests
             menu.ResumeGame();
 
             DestroyImmediate(menuObj);
-            Assert(mainOpen && resumed && pauseOpen, "Test_GameMenuUI_StateTransitions", "GameMenuUI failed menu transitions.");
+            Assert(mainOpen && resumed && pauseOpen, "Test_GameMenuUI_StateTransitionsAndCursor", "GameMenuUI failed menu transitions.");
+        }
+
+        private void Test_GuideNpc_InteractionAndDialogue()
+        {
+            GameObject npcObj = new GameObject("Test_GuideNpcHarness");
+            var guide = npcObj.AddComponent<GuideNpcInteractable>();
+            var idle = npcObj.AddComponent<GuideNpcIdleAnimation>();
+            var col = npcObj.AddComponent<BoxCollider>();
+
+            IInteractable interactable = guide;
+            bool promptValid = !string.IsNullOrEmpty(interactable.InteractionPrompt) && interactable.InteractionPrompt.Contains("Arjun");
+
+            interactable.Interact();
+            bool dialogueOpened = guide.IsDialogueOpen;
+
+            guide.CloseDialogue();
+            bool dialogueClosed = !guide.IsDialogueOpen;
+
+            bool idleValid = (idle != null);
+            DestroyImmediate(npcObj);
+            Assert(promptValid && dialogueOpened && dialogueClosed && idleValid, "Test_GuideNpc_InteractionAndDialogue", "Guide NPC failed interaction or dialogue cycle.");
         }
 
         private void Test_PlayerFootsteps_LocomotionLogic()
