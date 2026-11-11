@@ -75,6 +75,32 @@ namespace MurderMystery
                 evidenceJournal,
                 playerController);
 
+            // Person 4 Audio, Notification, and Menu Systems
+            if (FindComponent<MurderMystery.Audio.AudioManager>(scene) == null)
+            {
+                systemObject.AddComponent<MurderMystery.Audio.AudioManager>();
+            }
+
+            if (FindComponent<MurderMystery.UI.GameNotificationUI>(scene) == null)
+            {
+                systemObject.AddComponent<MurderMystery.UI.GameNotificationUI>();
+            }
+
+            if (FindComponent<MurderMystery.UI.GameMenuUI>(scene) == null)
+            {
+                systemObject.AddComponent<MurderMystery.UI.GameMenuUI>();
+            }
+
+            if (FindComponent<MurderMystery.UI.FloorMapUI>(scene) == null)
+            {
+                systemObject.AddComponent<MurderMystery.UI.FloorMapUI>();
+            }
+
+            if (playerController != null && playerController.GetComponent<PlayerFootsteps>() == null)
+            {
+                playerController.gameObject.AddComponent<PlayerFootsteps>();
+            }
+
             GameObject contentRoot = new GameObject("MysteryRuntimeContent");
             InstallEvidence(scene, contentRoot.transform, catalog);
             InstallSuspects(scene, mysteryUI, playerCamera);
@@ -222,6 +248,9 @@ namespace MurderMystery
             EvidenceCollectible collectible =
                 clue.AddComponent<EvidenceCollectible>();
             collectible.SetEvidenceItem(item);
+
+            // Person 4 Clue Visual Indicator (warm amber pulse)
+            clue.AddComponent<ClueVisualCue>();
         }
 
         private static void InstallSuspects(
