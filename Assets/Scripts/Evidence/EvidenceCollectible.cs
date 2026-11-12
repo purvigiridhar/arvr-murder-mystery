@@ -100,10 +100,6 @@ namespace MurderMystery
                 {
                     AudioSource.PlayClipAtPoint(collectSound, transform.position);
                 }
-                else if (MurderMystery.Audio.AudioManager.Instance != null)
-                {
-                    MurderMystery.Audio.AudioManager.Instance.PlayEvidenceCollected();
-                }
 
                 // Visual feedback
                 if (collectVfxPrefab != null)
